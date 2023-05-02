@@ -1,0 +1,16 @@
+version: '3.8'
+services: 
+  peers:
+    container_name: peers
+    build:
+      context: ./peers
+      dockerfile: Dockerfile.production
+    networks:
+      - nginx-proxy
+    restart: always
+    ports:
+      - 8001:8001 
+    working_dir: /home/node/app            
+
+networks:
+  nginx-proxy:
